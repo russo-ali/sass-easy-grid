@@ -12,6 +12,11 @@
   ],
   "author": "",
   "license": "ISC",
+  "repository": "https://github.com/russo-ali/sass-easy-grid",
+  "author": {
+    "name": "Ruslan Aliyev",
+    "email": "russo.sfs@gmail.com"
+  },
   "devDependencies": {
     "sass": "^1.32.5"
   }
