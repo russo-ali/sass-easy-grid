@@ -1,12 +1,15 @@
 {
   "name": "sass-easy-grid",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "scss/_sass-easy-grid.scss",
   "scripts": {
     "test": "npx sass test/styles.scss test/dist/styles.css"
   },
-  "keywords": [],
+  "keywords": [
+    "sass",
+    "grid"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
