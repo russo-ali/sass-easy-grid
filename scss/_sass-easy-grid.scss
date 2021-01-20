@@ -1,0 +1,54 @@
+@use 'sass:map';
+@use 'sass:list';
+@use 'partials/vars';
+
+@mixin -grid-column($position) {
+  $start: list.nth($position, 1);
+  $end: list.nth($position, 2);
+
+  @if $end > 0 {
+    $end: $end + 1;
+  }
+
+  grid-column: #{$start} / #{$end};
+}
+
+@mixin container() {
+  padding-right: vars.$container-padding / 2;
+  padding-left: vars.$container-padding / 2;
+  margin-right: auto;
+  margin-left: auto;
+  @each $key, $value in vars.$container-max-widths {
+    @media screen and (min-width: map.get(vars.$grid-breakpoints, $key)) {
+      max-width: $value;
+    }
+  }
+}
+
+@mixin row() {
+  display: grid;
+  grid-template-columns: repeat(vars.$grid-columns, 1fr);
+  grid-column-gap: vars.$grid-column-gap;
+}
+
+@mixin col($positions: ()) {
+  $default: map.get($positions, 'default');
+
+  @include -grid-column($default);
+
+  $positions: map.remove($positions, 'default');
+
+  @each $key, $value in $positions {
+    $min-width: map.get(vars.$grid-breakpoints, $key);
+
+    @if $min-width {
+      @media screen and (min-width: $min-width) {
+        @include -grid-column($value);
+      }
+    }
+  }
+}
+
+
+
+

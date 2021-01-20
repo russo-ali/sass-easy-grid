@@ -1,0 +1,21 @@
+@use 'grid';
+
+.container {
+  box-sizing: border-box;
+  height: 200px;
+  background-color: red;
+  @include grid.container;
+}
+
+.row {
+  @include grid.row;
+}
+
+.col {
+  @include grid.col((
+    default: (1,2),
+    xxl: (1,12),
+    lg: (1,-1),
+    md: (1, 5)
+  ));
+}
