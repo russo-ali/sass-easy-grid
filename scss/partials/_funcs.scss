@@ -1,7 +1,7 @@
 @use 'sass:map';
 
 @function grid-map-update($default-map, $map) {
-  @each $key in $map {
+  @each $key, $value in $map {
     @if not map.has-key($default-map, $key) {
       @error 'Grid has no size "#{$key}"';
     }
