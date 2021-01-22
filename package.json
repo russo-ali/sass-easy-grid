@@ -1,7 +1,7 @@
 {
   "name": "sass-easy-grid",
   "version": "0.1.0",
-  "description": "",
+  "description": "Sass library for developing responsive projects on the web.",
   "main": "_sass-easy-grid",
   "scripts": {
     "test": "npx sass test/styles.scss dist/styles.css"
