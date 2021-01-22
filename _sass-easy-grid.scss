@@ -31,7 +31,11 @@ $-container-max-widths: (
   xxl: $container-max-width-xxl
 );
 
-@mixin container() {
+@mixin container($content-box: true) {
+  @if $content-box {
+    box-sizing: content-box;
+  }
+
   margin: 0 auto;
   padding-left: $container-padding;
   padding-right: $container-padding;
