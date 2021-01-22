@@ -1,0 +1,83 @@
+@use 'sass:map';
+
+$grid-breakpoint-sm: 576px !default;
+$grid-breakpoint-md: 768px !default;
+$grid-breakpoint-lg: 992px !default;
+$grid-breakpoint-xl: 1200px !default;
+$grid-breakpoint-xxl: 1400px !default;
+$grid-columns: 12 !default;
+$grid-column-gap: 30px !default;
+
+$-grid-breakpoints: (
+  sm: $grid-breakpoint-sm,
+  md: $grid-breakpoint-md,
+  lg: $grid-breakpoint-lg,
+  xl: $grid-breakpoint-xl,
+  xxl: $grid-breakpoint-xxl
+);
+
+$container-max-width-sm: 540px !default;
+$container-max-width-md: 720px !default;
+$container-max-width-lg: 960px !default;
+$container-max-width-xl: 1140px !default;
+$container-max-width-xxl: 1320px !default;
+$container-padding: $grid-column-gap / 2 !default;
+
+$-container-max-widths: (
+  sm: $container-max-width-sm,
+  md: $container-max-width-md,
+  lg: $container-max-width-lg,
+  xl: $container-max-width-xl,
+  xxl: $container-max-width-xxl
+);
+
+@mixin container() {
+  margin: 0 auto;
+  padding-left: $container-padding;
+  padding-right: $container-padding;
+
+  @each $key, $value in $-container-max-widths {
+    @media screen and (min-width: map.get($-grid-breakpoints, $key)) {
+      max-width: $value;
+    }
+  }
+}
+
+@mixin row() {
+  grid-template-columns: repeat($grid-columns, 1fr);
+  grid-column-gap: $grid-column-gap;
+}
+
+@mixin -col-media($start, $end, $size) {
+  @if $end > 0 {
+    $end: $end + 1;
+  }
+
+  @media screen and (min-width: map.get($-grid-breakpoints, $size)) {
+    grid-column: #{$start} / #{$end};
+  }
+}
+
+@mixin col($start, $end) {
+  grid-column: #{$start} / #{$end};
+}
+
+@mixin col-sm($start, $end) {
+  @include -col-media($start, $end, 'sm');
+}
+
+@mixin col-md($start, $end) {
+  @include -col-media($start, $end, 'md');
+}
+
+@mixin col-lg($start, $end) {
+  @include -col-media($start, $end, 'lg');
+}
+
+@mixin col-xl($start, $end) {
+  @include -col-media($start, $end, 'xl');
+}
+
+@mixin col-xxl($start, $end) {
+  @include -col-media($start, $end, 'xxl');
+}

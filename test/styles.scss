@@ -1,9 +1,6 @@
 @use 'grid';
 
 .container {
-  box-sizing: border-box;
-  height: 200px;
-  background-color: red;
   @include grid.container;
 }
 
@@ -12,10 +9,6 @@
 }
 
 .col {
-  @include grid.col((
-    default: (1,2),
-    xxl: (1,12),
-    lg: (1,-1),
-    md: (1, 5)
-  ));
+  @include grid.col(1,-1);
+  @include grid.col-sm(1,9);
 }

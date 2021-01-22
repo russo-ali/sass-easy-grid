@@ -1,22 +1,21 @@
 {
   "name": "sass-easy-grid",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "",
-  "main": "scss/_sass-easy-grid.scss",
+  "main": "_sass-easy-grid",
   "scripts": {
-    "test": "npx sass test/styles.scss test/dist/styles.css"
+    "test": "npx sass test/styles.scss dist/styles.css"
   },
   "keywords": [
     "sass",
     "grid"
   ],
-  "author": "",
-  "license": "ISC",
-  "repository": "https://github.com/russo-ali/sass-easy-grid",
   "author": {
     "name": "Ruslan Aliyev",
     "email": "russo.sfs@gmail.com"
   },
+  "license": "ISC",
+  "repository": "https://github.com/russo-ali/sass-easy-grid",
   "devDependencies": {
     "sass": "^1.32.5"
   }
