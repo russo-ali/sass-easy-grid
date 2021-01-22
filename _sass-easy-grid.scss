@@ -86,3 +86,19 @@ $-container-max-widths: (
 @mixin col-xxl($start, $end) {
   @include -col-media($start, $end, 'xxl');
 }
+
+@mixin justify($value) {
+  justify-items: $value;
+}
+
+@mixin align($value) {
+  align-items: $value;
+}
+
+@mixin justify-self($value) {
+  justify-self: $value;
+}
+
+@mixin align-self($value) {
+  align-self: $value;
+}
