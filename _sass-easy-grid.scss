@@ -49,6 +49,7 @@ $-container-max-widths: (
 }
 
 @mixin row() {
+  display: grid;
   grid-template-columns: repeat($grid-columns, 1fr);
   grid-column-gap: $grid-column-gap;
 }
